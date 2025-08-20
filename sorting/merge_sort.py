@@ -36,8 +36,8 @@ def merge(left, right):
 
 
 arr = [23,2,554,233,2323,522,2,1,55]
-
-print(merge_sort(arr))
+arr2 = ["abel","addis","abrham","abenzer"]
+print(merge_sort(arr2))
 
 
 
