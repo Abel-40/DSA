@@ -1,16 +1,11 @@
 def bubble_sort(arr):
   end = len(arr)
-  swapping = True
-  while swapping:
-    swapping = False
+  while end > 0:
     for i in range(1,end):
       if arr[i - 1] > arr[i]:
-        temp = arr[i-1]
-        arr[i-1] = arr[i]
-        arr[i] = temp
-        swapping = True
+        arr[i-1],arr[i] = arr[i],arr[i-1]
     end -=1
-  return arr
+ 
 
 def merge(left,right):
   i,j = 0,0
@@ -39,43 +34,5 @@ def merge_sort(arr):
 
     
 
-arr = [8,9,7,5,4,6,2,10]
 
 
-
-def binary_search(arr,target):
-  sorted_arr = merge_sort(arr)
-  low,high = 0,len(sorted_arr) - 1
-  index_of_target = -1
-  while low <= high:
-    mid = (low + high) // 2
-    if sorted_arr[mid] == target:
-      index_of_target = mid
-      break
-    elif sorted_arr[mid] < target:
-      low = mid + 1
-    else:
-      high = mid - 1
-  return index_of_target
-   
-
-# print(binary_search(arr,7))
-
-
-def square_root(n):
-  low = 1
-  high = n
-  ans = -1
-  while low <= high:
-    mid = (low + high) //2
-    if mid * mid == n:
-      ans = mid
-      break
-    elif mid * mid < n:
-      ans = mid
-      low = mid + 1
-      
-    else:
-      high = mid - 1
-  return ans
-print(square_root(37))
