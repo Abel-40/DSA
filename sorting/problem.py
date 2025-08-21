@@ -116,4 +116,7 @@ def mark_merge_helper(left,right):
   result.extend(right[j:])
   return result
 
-print(student_mark_merge(arr4))
+# print(student_mark_merge(arr4))
+
+for i in range(10):
+  print(i)
