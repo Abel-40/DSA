@@ -77,3 +77,43 @@ def k_th_smallest(arr, k):
 arr4 = [6,5,4,3,2,1]
 k_th_smallest(arr4,2)
 # print(arr4)
+
+def student_mark_binary(arr):
+  end = len(arr)
+  while end > 0:
+    for i in range(1,end):
+      if arr[i-1][1] < arr[i][1]:
+        arr[i-1],arr[i] = arr[i],arr[i-1]
+    end -=1
+arr4 = [("Charlie", 85), ("Alice", 90), ("Bob", 90)]
+
+# student_mark_binary(arr4)
+# print(arr4)
+
+def student_mark_merge(arr):
+  if len(arr) <= 1:
+    return arr
+  mid = len(arr)//2
+  left_arr =  arr[:mid]
+  right_arr = arr[mid:]
+  print(left_arr)
+  print(right_arr)
+  new_left = student_mark_merge(left_arr)
+  new_right = student_mark_merge(right_arr)
+  return mark_merge_helper(new_left,new_right)  
+
+def mark_merge_helper(left,right):
+  i,j = 0,0
+  result = []
+  while i < len(left) and j < len(right):
+    if left[i][1] < right[j][1]:
+      result.append(right[j])
+      j +=1
+    else:
+      result.append(left[i])
+      i+=1
+  result.extend(left[i:])
+  result.extend(right[j:])
+  return result
+
+print(student_mark_merge(arr4))
